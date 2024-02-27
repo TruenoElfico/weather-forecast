@@ -2,9 +2,6 @@ import Search from "./ui/search";
 import CardSection from "./ui/cards";
 
 import { getCity } from "./lib/data";
-import { Suspense } from "react";
-
-import Loading from "./loading";
 
 export default async function Page({
   searchParams,
@@ -44,9 +41,11 @@ export default async function Page({
         />
       </div>
           <div className='mt-10 mx-auto max-w-7xl' >
-            <p className="text-white">Weather for next 5 days in <span className="text-4xl">{cityName.toUpperCase()}</span></p>
+            { !!cityName && <p className="text-white">Weather for next 5 days in <span className="text-4xl">{cityName.toUpperCase()}</span></p>}
             <div className="mt-4 grid grid-cols-5 gap-4">
-              <CardSection weatherData={weatherData}></CardSection>
+              {
+                !!cityName && (<CardSection weatherData={weatherData}></CardSection>)
+              }
             </div>
           </div>
     </div>
