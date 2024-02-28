@@ -14,8 +14,8 @@ export async function getCity(cityName: any) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        const data = await response.json();
 
+        const data = await response.json();
         const urlOpenWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${data[0].lat}&lon=${data[0].long}&appid=${api_key}&units=metric`;
         
         const responseOpenWeather = await fetch(urlOpenWeather);
