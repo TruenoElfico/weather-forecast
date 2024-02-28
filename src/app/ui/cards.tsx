@@ -2,8 +2,8 @@ import { SunIcon } from '@heroicons/react/24/outline'
 
 export default function CardSection({weatherData}: {weatherData: any}) {
     interface WeatherDetail {
-        min: string,
-        max: string,
+        min: number,
+        max: number,
         date: string
     }
 
@@ -64,8 +64,8 @@ export function Card({
   minValue,
 }: {
   dayWeek: string;
-  maxValue: string;
-  minValue: string;
+  maxValue: number;
+  minValue: number;
 }) {
     return (
         <div className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-between col-span-1">
@@ -73,16 +73,16 @@ export function Card({
             <div className="flex items-center mb-4 mt-8">
                 {/* <img src="weather-icon.png" alt="Weather icon" className="h-8 w-8 mr-2"></img> */}
                 {/* <SunIcon className='w-8 l-8'></SunIcon> */}
-                <p className="text-lg font-medium text-4xl">{maxValue}°C</p>
+                <p className="font-medium text-4xl">{Math.round(maxValue)}°C</p>
             </div>
             <div className="flex justify-between mt-8">
                 <div>
-                    <p className="text-sm text-gray-600">Min</p>
-                    <p className="text-lg font-medium">{minValue}°C</p>
+                    <p className="text-sm text-gray-600">Max</p>
+                    <p className="text-lg font-medium">{Math.round(maxValue)}°C</p>
                 </div>
                 <div>
-                    <p className="text-sm text-gray-600">Max</p>
-                    <p className="text-lg font-medium">{maxValue}°C</p>
+                    <p className="text-sm text-gray-600">Min</p>
+                    <p className="text-lg font-medium">{Math.round(minValue)}°C</p>
                 </div>
             </div>
         </div>
