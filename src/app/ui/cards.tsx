@@ -1,4 +1,3 @@
-import { SunIcon } from '@heroicons/react/24/outline'
 
 export default function CardSection({weatherData}: {weatherData: any}) {
     interface WeatherDetail {
@@ -8,15 +7,15 @@ export default function CardSection({weatherData}: {weatherData: any}) {
     }
 
     let minMaxData: WeatherDetail[] = [];
-
-    if (!!weatherData) {
+    
+    if (!!weatherData.list) {
         for (let i = 0; i < weatherData.list.length; i++) {
             const currentDate = weatherData.list[i].dt_txt.split(' ')[0];
             let minTemp = weatherData.list[i].main.temp_min;
             let maxTemp = weatherData.list[i].main.temp_max;
     
             let j;
-            for (j = i + 1; j < weatherData.list.length; j++) {
+            for (j = i + 1; j < weatherData.list.length; j++) {               
                 if (weatherData.list[j].dt_txt.split(' ')[0] === currentDate) {
                     minTemp = Math.min(minTemp, weatherData.list[j].main.temp_min);
                     maxTemp = Math.max(maxTemp, weatherData.list[j].main.temp_max);
