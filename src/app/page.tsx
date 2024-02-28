@@ -40,9 +40,9 @@ export default async function Page({
           }}
         />
       </div>
-          <div className='mt-10 mx-auto max-w-7xl' >
+          <div className='mt-10 mx-auto max-w-7xl px-6' >
             { !!cityName && <p className="text-white">Weather for next 5 days in <span className="text-4xl">{cityName.toUpperCase()}</span></p>}
-            <div className="mt-4 grid grid-cols-5 gap-4">
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-5 gap-4">
               {
                 !!cityName && (<CardSection weatherData={weatherData}></CardSection>)
               }
