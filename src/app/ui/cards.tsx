@@ -32,6 +32,8 @@ export default function CardSection({weatherData}: {weatherData: any}) {
                 "date": currentDate
             })
         }   
+    } else {
+        return <p className="text-red-500">Invalid search... try again.</p>
     }
     
     function getDayOfWeek(date: Date): string {
