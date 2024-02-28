@@ -34,27 +34,25 @@ export default function CardSection({weatherData}: {weatherData: any}) {
             })
         }   
     }
-
+    
     function getDayOfWeek(date: Date): string {
-        const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
         const dayIndex = date.getDay();
         return daysOfWeek[dayIndex];
     }
     
-    // Example usage:
-    const date = new Date(); // This will give today's date
-    const dayOfWeek = getDayOfWeek(date);
-    console.log(dayOfWeek); // Output: e.g., "Saturday"
-    
+    function repeat() {        
+        let items = [];
+        
+        for (let i = 0; i < 5; i++) {
+            items.push(<Card dayWeek={getDayOfWeek(new Date(minMaxData[i].date))} maxValue={minMaxData[i].max} minValue={minMaxData[i].min} key={i}></Card>);
+        }
+        return <>{items}</>;
+    }
+      
 
     return (
-        <>
-            {
-                minMaxData.map((item, index) => (
-                    <Card dayWeek={getDayOfWeek(new Date(item.date))} maxValue={item.max} minValue={item.min} key={index}></Card>
-                ))  
-            }
-        </>
+        repeat()
     )
 }
 
